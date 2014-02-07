@@ -2,6 +2,35 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+    'ftp-deploy': {
+      build: {
+        auth: {
+          host: 'strevenue.webfactional.com',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: '.',
+        dest: '/home/strevenue/webapps/bmugsite/wp-content/themes/bmug',
+        exclusions: [
+          '.git*',
+          '.editorconfig',
+          '.jshintrc',
+          './**/.DS_Store',
+          './**/Thumbs.db',
+          'Gruntfile.js',
+          'package.json',
+          '.ftppass',
+          'CHANGELOG.md',
+          'CONTRIBUTING.md',
+          'LICENSE.md',
+          'README.md',
+          './lang',
+          './assets/less',
+          './assets/js/plugins',
+          './node_modules'
+        ]
+      }
+    },
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -108,6 +137,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-wp-version');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
 
   // Register tasks
   grunt.registerTask('default', [
@@ -119,5 +149,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', [
     'watch'
   ]);
-
+  grunt.registerTask('deploy', [
+    'ftp-deploy'
+  ]);
 };
