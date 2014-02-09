@@ -1,8 +1,9 @@
 /*!
- * Roots 6.5.2
+ * Roots 6.5.1
  */
 
 @import "bootstrap/bootstrap.less";
+@import "fonts.less";
 
 /* ==========================================================================
    Base
@@ -38,7 +39,33 @@ body {
    Header
    ========================================================================== */
 
-.banner { }
+.banner { 
+   .navbar-nav{
+      margin-top: 50px;
+
+      li {
+         font-size: 18px;
+
+         a {
+            color: #E06D20;
+         }
+         .dropdown-menu > li > a {
+            font-weight: 300;
+
+            // &a:hover, 
+            // &a:focus {
+            //    background-color: #E06D20;
+            // }
+         }
+         
+      }
+
+
+   }
+
+
+
+}
 
 
 
@@ -85,7 +112,9 @@ body {
    Footer
    ========================================================================== */
 
-.content-info { }
+.content-info { 
+   background-color: @gray-lighter;
+}
 
 
 
