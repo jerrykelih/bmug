@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '13faa9af968e3f28453e2f174301c284');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'c598a7f34e89f536a362b026ee8088e7');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
@@ -66,5 +66,3 @@ if (GOOGLE_ANALYTICS_ID && !current_user_can('manage_options')) {
   add_action('wp_footer', 'roots_google_analytics', 20);
 }
 ?>
-
-<script src="//localhost:35729/livereload.js"></script>

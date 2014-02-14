@@ -8,7 +8,8 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="<?php echo home_url(); ?>/">
-          <img src="./wp-content/themes/bmug/assets/img/logo.svg" alt="<?php bloginfo('name'); ?>" />
+        <img src="<?php echo get_template_directory_uri();?>/assets/img/logo.svg" alt="<?php bloginfo('name'); ?>">
+        
       </a>
     </div>
 

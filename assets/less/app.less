@@ -9,6 +9,14 @@
    Base
    ========================================================================== */
 
+
+// Color Swatches
+
+@orange:                 #F38630;
+@fire:                   #E06D20;
+@water:                  #89C6C1;
+@sand:                   #FFF6D2;
+
 body { 
 
    font-family: 'Lato';
@@ -27,7 +35,12 @@ body {
 
 
    a {
-      color: #E06D20;
+      color: @fire;
+      &:hover, 
+      &:focus {
+         color: @orange;
+         text-decoration: none;
+      }
    }
 
 
@@ -39,27 +52,71 @@ body {
    Header
    ========================================================================== */
 
-.banner { 
+
+.navbar { 
+
+   .navbar-brand {
+      height: auto;
+   }
+
    .navbar-nav{
-      margin-top: 50px;
+      margin-top: 60px;
 
       li {
          font-size: 18px;
 
          a {
-            color: #E06D20;
+            color: @fire;
+            &:hover, 
+            &:focus {
+               color: @orange;
+            }
          }
-         .dropdown-menu > li > a {
-            font-weight: 300;
 
-            // &a:hover, 
-            // &a:focus {
-            //    background-color: #E06D20;
-            // }
+         .dropdown-menu {
+            padding: 10px 0px;
+            border: none;
+            background-color: @orange;
+            li {
+               a {
+                  padding: 8px 20px;
+               }
+            }
+            .active {            
+               a {
+                  background-color: @fire;
+                 
+               }
+            }
+         }
+      }
+
+      .open {
+         
+         a {
+            color: white;
+            font-weight: 100;
+            &:hover, 
+            &:focus {
+               background-color: @fire;
+               color: white;
+            }
+         }
+      }
+
+      .active {
+         
+         & > a {
+            background-color: @orange;
+            color: white;
+            &:hover, 
+            &:focus {
+               background-color: @fire;
+               color: white;
+            }
          }
          
       }
-
 
    }
 
@@ -92,7 +149,24 @@ body {
    Sidebar
    ========================================================================== */
 
-.sidebar { }
+.sidebar {
+   .widget {
+      background-color: @water;
+      color: @sand;
+      padding: 10px 20px;
+      margin: 20px 0px;
+      
+      a {
+         color: white;
+         &:hover, 
+         &:focus {
+            color: @sand;
+            text-decoration: none;
+         }
+      }
+   }
+
+}
 
 
 
@@ -107,13 +181,96 @@ body {
 .hentry footer { }
 
 
+/* ==========================================================================
+   Events
+   ========================================================================== */
+
+.event-registration { 
+
+   .page-header h1 {
+      font-size: 26px;
+   }
+
+   .event_title {
+      margin-top: 40px;
+   }
+
+   .event_prices {
+      &::before {
+         content:'\f08a';
+         font-family: 'FontAwesome';
+         padding-right: 7px;
+      }
+   }
+
+   .date-heading {
+      &::before {
+         content:'\f017';
+         font-family: 'FontAwesome';
+         padding-right: 7px;
+      }
+   }
+
+   .location-heading {
+      &::before {
+         content:'\f041';
+         font-family: 'FontAwesome';
+         padding-right: 7px;
+      }
+   }
+
+   .spaker-heading {
+      &::before {
+         content:'\f007';
+         font-family: 'FontAwesome';
+         padding-right: 7px;
+      }
+   }
+
+   .espresso_ical_link {
+
+      &::after {
+         content:'iCal \f073';
+         font-family: 'FontAwesome';
+      }
+
+         img {
+         display: none;
+         }
+   }
+
+}
+
+
+
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 
-.content-info { 
-   background-color: @gray-lighter;
+footer { 
+   background-color: @sand;
+   padding: 30px 30px;
+
+   .icl_languages_selector {
+
+      #lang_sel_list ul a, 
+      #lang_sel_list_list ul a:visited {
+         padding: 8px 10px;
+         border: none;
+         border-width: 0px;
+         font-family: 'Lato';
+         font-size: 16px;
+         font-weight: 100;
+         color: white;
+         background: @orange;
+         &:hover, 
+         &:focus {
+            background: @fire;
+            color: white;
+         }
+      }
+   }
 }
 
 
