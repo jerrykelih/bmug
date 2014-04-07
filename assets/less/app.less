@@ -4,46 +4,82 @@
 
 @import "bootstrap/bootstrap.less";
 @import "fonts.less";
+@import "mixins.less";
+@import "buddypress.less";
+@import "custom-post.less";
+@import "workshops.less";
+@import "colors.less";
+@import "fonts.less";
+
+
+
 
 /* ==========================================================================
-   Base
+   Body
    ========================================================================== */
 
 
-// Color Swatches
-
-@orange:                 #F38630;
-@fire:                   #E06D20;
-@water:                  #89C6C1;
-@sand:                   #FFF6D2;
-
 body { 
 
-   font-family: 'Lato';
+   .sans-font;
    font-weight: 300;
    line-height: 2.5em;
 
    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-      font-family: 'Lato';
+      .serif-font;
       font-weight: 300;
+   }
+
+   h1 {
+      font-size: 40px;
+      font-weight: 500;
+      color: #3B3B3B;
+   }
+
+   h3 {
+      font-size: 26px;
    }
 
    p {
       font-size: 18px;
+      color: @dark;
 
    }
 
 
    a {
-      color: @fire;
+      color: @apricot-dark;;
       &:hover, 
       &:focus {
-         color: @orange;
+         color: @apricot;
          text-decoration: none;
       }
    }
 
+   i {
+      font-family: 'FontAwesome';
+      font-style: normal;
+   }
 
+   input[type=text] {
+      width: 100%;
+   }
+   
+   input[type="button"], 
+   input[type="reset"], 
+   input[type="submit"] {
+      background-color: @apricot-dark;
+      border: none;
+      color: @white;
+      padding: 3px 16px;
+   }
+   
+   .avatar{
+      .circle-shape;
+   }
+   .button {
+      .button-orange;
+   }  
 }
 
 
@@ -55,41 +91,16 @@ body {
 
 .navbar { 
 
+   background-color: #FFF;
+   border-color: #FFF;
+
    .navbar-brand {
       height: auto;
    }
 
    .navbar-nav{
       margin-top: 60px;
-
-      li {
-         font-size: 18px;
-
-         a {
-            color: @fire;
-            &:hover, 
-            &:focus {
-               color: @orange;
-            }
-         }
-
-         .dropdown-menu {
-            padding: 10px 0px;
-            border: none;
-            background-color: @orange;
-            li {
-               a {
-                  padding: 8px 20px;
-               }
-            }
-            .active {            
-               a {
-                  background-color: @fire;
-                 
-               }
-            }
-         }
-      }
+      .navbar-links;
 
       .open {
          
@@ -98,30 +109,78 @@ body {
             font-weight: 100;
             &:hover, 
             &:focus {
-               background-color: @fire;
+               background-color: @apricot-dark;
                color: white;
             }
          }
       }
 
       .active {
-         
-         & > a {
-            background-color: @orange;
-            color: white;
-            &:hover, 
-            &:focus {
-               background-color: @fire;
-               color: white;
-            }
+         a{
+            .active-tab; 
          }
-         
+           
       }
+
 
    }
 
 
 
+}
+
+#wpadminbar {
+   background-color: transparent;
+
+   #wp-toolbar {
+      #wp-admin-bar-root-default {
+         #wp-admin-bar-wp-logo{
+            display: none;
+         }
+         #wp-admin-bar-site-name{
+            display: none;
+         }
+         #wp-admin-bar-social_login {
+            float: right;
+            margin-right: 17%;
+            a {
+               .button-orange-small;
+               font-size: 14px;
+
+               &::before {
+                  .fa-icon;
+                  content: '\f090';
+                  color: inherit;
+                  font-size: 24px;
+
+               }
+            }
+
+         }
+      }
+
+      #wp-admin-bar-top-secondary {
+         #wp-admin-bar-search {
+            display: none;
+         }
+
+         #wp-admin-bar-my-account {
+            background-color: @apricot;
+
+            * {
+               background-color: @apricot;
+               color: @white;
+               font-size: 14px;
+               .sans-font;
+            }
+         }
+
+         #wp-admin-bar-bp-notifications{
+            background-color: @apricot;
+         }
+      }
+     
+   }
 }
 
 
@@ -130,7 +189,16 @@ body {
    Content
    ========================================================================== */
 
-.content { }
+.content { 
+
+   .entry-content {
+      >h3 {
+         margin-bottom: 20px;
+         margin-top: 40px;
+      }
+   }
+
+}
 
 
 
@@ -151,23 +219,85 @@ body {
 
 .sidebar {
    .widget {
-      background-color: @water;
-      color: @sand;
+      font-size: 16px;
+      line-height: 1.9em;
       padding: 10px 20px;
       margin: 20px 0px;
+
+      ul {
+         padding-left: 20px;
+      }
+
+      li {
+         margin-bottom: 10px;
       
-      a {
-         color: white;
-         &:hover, 
-         &:focus {
+      }
+
+      &.widget_em_widget,
+      &.widget_text { // Events
+         
+         .widget-green;
+         input[type="button"], 
+         input[type="reset"], 
+         input[type="submit"] {
+            background-color: @green-dark;
+            border: none;
             color: @sand;
-            text-decoration: none;
+            padding: 3px 16px;
+         }
+
+      }
+
+      &.testimonialrotatorwidget-3.TestimonialRotatorWidget { // Testimonial
+         
+         .widget-orange;
+
+         .testimonial_rotator_widget_blockquote { 
+            padding: 10px 0px;
+            margin: 0 0 0px;
+            font-size: 16px;
+            border-left: none;
+            line-height: 1.7em;
+
+            cite {
+               font-size: 14px!important;
+            }
+
+            &::before {
+               font-family: 'FontAwesome';
+               content: '\f10d';
+               margin-right: 5px;
+            }
          }
       }
+    
+      &.widget_bp_groups_widget { // Groups
+
+         .widget-orange;
+
+         .item-list {
+            img.avatar {
+            height: 40px;
+            margin-right: 10px;
+            width: 40px;
+            }
+         }
+
+         .item-options {
+            color: @green;
+            line-height: 3em;
+            a {
+               padding: 9px 11px;
+               font-size: 17px!important;
+            }
+
+            .selected {
+               color: @white;
+            }
+         }     
+      }
    }
-
 }
-
 
 
 /* ==========================================================================
@@ -181,76 +311,31 @@ body {
 .hentry footer { }
 
 
-/* ==========================================================================
-   Events
-   ========================================================================== */
-
-.event-registration { 
-
-   .page-header h1 {
-      font-size: 26px;
-   }
-
-   .event_title {
-      margin-top: 40px;
-   }
-
-   .event_prices {
-      &::before {
-         content:'\f08a';
-         font-family: 'FontAwesome';
-         padding-right: 7px;
-      }
-   }
-
-   .date-heading {
-      &::before {
-         content:'\f017';
-         font-family: 'FontAwesome';
-         padding-right: 7px;
-      }
-   }
-
-   .location-heading {
-      &::before {
-         content:'\f041';
-         font-family: 'FontAwesome';
-         padding-right: 7px;
-      }
-   }
-
-   .spaker-heading {
-      &::before {
-         content:'\f007';
-         font-family: 'FontAwesome';
-         padding-right: 7px;
-      }
-   }
-
-   .espresso_ical_link {
-
-      &::after {
-         content:'iCal \f073';
-         font-family: 'FontAwesome';
-      }
-
-         img {
-         display: none;
-         }
-   }
-
-}
-
-
-
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 
-footer { 
-   background-color: @sand;
+footer.content-info { 
+   background-color: @apricot-light;
    padding: 30px 30px;
+   color: @white;
+      
+      a {
+         color: @sun;
+         &:hover, 
+         &:focus {
+            color: @sand;
+            text-decoration: none;
+         }
+      }
+
+   .copyright {
+      p {
+         color: @white;
+      }
+      
+   }
 
    .icl_languages_selector {
 
@@ -263,15 +348,21 @@ footer {
          font-size: 16px;
          font-weight: 100;
          color: white;
-         background: @orange;
+         background: @apricot;
          &:hover, 
          &:focus {
-            background: @fire;
+            background: @apricot-dark;
             color: white;
          }
       }
    }
 }
+
+
+
+
+
+
 
 
 

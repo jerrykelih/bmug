@@ -29,6 +29,21 @@ module.exports = function(grunt) {
           './assets/js/plugins',
           './node_modules'
         ]
+      },
+      css: {
+        auth: {
+          host: 'strevenue.webfactional.com',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: './assets/css/',
+        dest: '/home/strevenue/webapps/bmugsite/wp-content/themes/bmug/assets/css/',
+        exclusions: [
+          './**/.DS_Store',
+          './**/Thumbs.db',
+          '.ftppass',
+          'editor-style.css'
+        ]  
       }
     },
     jshint: {
@@ -100,7 +115,7 @@ module.exports = function(grunt) {
           'assets/less/*.less',
           'assets/less/bootstrap/*.less'
         ],
-        tasks: ['less', 'version']
+        tasks: ['less', 'version', 'ftp-deploy:css']
       },
       js: {
         files: [
@@ -150,6 +165,6 @@ module.exports = function(grunt) {
     'watch'
   ]);
   grunt.registerTask('deploy', [
-    'ftp-deploy'
+    'ftp-deploy:build'
   ]);
 };

@@ -1,0 +1,866 @@
+/* ==========================================================================
+   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   ==========================================================================
+   BuddyPress 
+   ========================================================================== 
+   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+   ========================================================================== */
+/* ==========================================================================
+   General Styles
+   ========================================================================== */
+
+body.buddypress{
+   
+
+}
+
+/* ==========================================================================
+   Admin Bar
+   ========================================================================== */
+
+#wpadminbar {
+   background-color: transparent;
+   position: absolute;
+
+   #wp-toolbar {
+      #wp-admin-bar-root-default {
+         #wp-admin-bar-wp-logo{
+            display: none;
+         }
+         #wp-admin-bar-site-name{
+            display: none;
+         }
+         #wp-admin-bar-social_login {
+            float: right;
+            margin-right: 17%;
+            a {
+               .button-orange-small;
+               font-size: 14px;
+
+               &::before {
+                  .fa-icon;
+                  content: '\f090';
+                  color: inherit;
+                  font-size: 24px;
+
+               }
+            }
+
+         }
+      }
+
+      #wp-admin-bar-top-secondary {
+         margin-right: 7%;
+
+         #wp-admin-bar-search {
+            display: none;
+         }
+
+         // Template match fix
+         #wp-admin-bar-my-account,
+         #wp-admin-bar-bp-notifications {
+
+            background-color: @apricot;
+
+            a {
+               font-size: 16px;
+               padding: 5px 15px;
+
+            }
+
+            * {
+               background-color: @apricot;
+               color: @white;
+               font-size: 14px;
+               .sans-font;
+               img {
+                  .circle-shape;
+               }
+            }
+         }
+         // Template match fix END
+
+         #wp-admin-bar-my-account {
+            > a.ab-item {
+               .avatar.photo {
+                  border-color: @apricot-dark;
+                  width: 30px;
+                  height: 30px;
+               }
+            }
+
+            .ab-sub-wrapper {
+               #wp-admin-bar-user-actions {
+
+                  #wp-admin-bar-user-info{   
+
+                     display: none; 
+
+                     // a.ab-item  {
+                     //    .display-name {
+                     //       font-size: 18px;
+                     //       margin-bottom: 10px;
+                     //    }
+                     //    .username{
+                     //       font-size: 14px;
+                     //       font-weight: 100;
+                     //    }
+                     // }
+                  }
+
+                  #wp-admin-bar-edit-profile{
+                     margin-top: 10px;
+                     margin-left: 0px;
+                     a{
+                        &::before {
+                           .fa-icon;
+                           content: '\f040';
+                        }
+                     }
+                  }
+
+                  #wp-admin-bar-logout{
+                     margin-top: 5px;
+                     margin-left: 0px;
+                     a{
+                        &::before {
+                           .fa-icon;
+                           content: '\f08b';
+                        }
+                     }
+                  }  
+               }
+
+               #wp-admin-bar-my-account-buddypress{
+                  
+                     a.ab-item{
+                        padding-left: 40px;
+                        &::before {
+                           padding-left: 10px;
+                        }
+                     }
+
+
+                     .ab-sub-wrapper{
+                        background-color: @apricot-dark !important;
+                     }
+                  
+               }
+            }
+         }
+
+         #wp-admin-bar-bp-notifications{
+            
+            #ab-pending-notifications {
+               background: @sun;
+               color: @apricot-dark;
+
+
+            }
+         }
+      }
+     
+   }
+}
+
+/* ==========================================================================
+   BuddyPress Directory
+   ========================================================================== */
+
+.groups.directory,
+.members {
+
+   .page-header{
+      .button {
+         .button-orange;
+         font-size: 16px;
+         float: right;
+         &::before {
+            font-family: 'FontAwesome';
+            content: '\f067';
+            text-align: middle;
+            padding-right: 5px;
+         }
+      }
+   }
+
+   #buddypress{
+
+      
+
+      .dir-search{
+         float: none;
+         margin: 0 auto;
+         display: block;
+         position: relative;
+         width: 100%;
+         padding: 5% 20%;
+         background-color: @sand;
+         margin-bottom: 20px;
+
+         input[type="text"] {
+            font-weight: 300;
+            padding: 5px 14px;
+            font-size: 20px;
+         }
+         input[type="submit"] {
+            .button-orange;
+            padding: 6px 16px;
+         }
+      }
+
+      .dir-form {
+
+         .pagination {
+            display: none;
+         }
+
+         .item-list-tabs{
+            float: left;
+            clear: none;
+            .orange-tab;
+         }
+
+         #subnav{
+            float: right;
+            label{
+               font-size: 16px;
+               font-weight: 300;
+            }
+            select{
+               font-size: 16px;
+               font-weight: 300;
+               .sans-font;
+
+            }
+            
+         }
+
+         .dir-list{
+            
+            li {
+               padding: 25px 0;
+               .item {
+
+                  
+                  
+                  .item-title{
+                     margin-left: 60px;
+                     max-width: 680px;
+                     a {
+                        font-size: 22px;
+                     }
+                     .update {
+                        font-size: 16px;
+                        font-weight: 300;
+                        .activity-read-more {
+                           a {
+                              font-size: 14px;
+                           }
+                        }
+                     }
+                  }
+                  .item-desc {
+                     width: 70% !important;
+                     font-size: 16px !important;
+                     line-height: 1.7em;
+                  }
+
+                  .item-meta {
+                     .activity{
+                        font-size: 14px;
+                        display: none;
+                     }
+                     
+                  }
+               }
+
+               .action{
+                  font-size: 18px;
+
+                  .add {
+                     .button-orange-small;
+                  }
+
+                  .generic-button{
+                     .group-button {
+                        .button-orange-small;
+                     }
+                  }
+               }
+            }
+            
+         }
+
+      }
+
+   }
+
+
+   
+}
+
+
+/* ==========================================================================
+   BuddyPress Single Pages
+   ========================================================================== */
+
+// Body
+.single-item.groups,
+.bp-user { 
+   
+   // Content
+   .content {
+      .page-header{
+         display: none;
+      }
+      
+      // Buddypress
+      #buddypress {
+
+         #item-header{
+            
+            #group-admins {
+               padding-left: 0;
+               li {
+                  float: left;
+               }
+            }
+            .highlight,
+            .activity {
+               font-size: 16px;
+               margin-left: 15%;              
+            }
+            
+            #item-actions{
+               margin: 0;
+               text-align: left;
+               width: 100%;
+               float: left;
+               
+               h3 {
+                  font-size: 20px;
+               }
+               
+            }  
+
+            #item-header-avatar {
+               margin-top: 25px;
+
+            }
+
+            #item-header-content {
+               .activity{
+                  display: none;
+               }
+               #item-meta {
+                  #latest-update{
+                     font-size: 18px;
+                  }
+                  
+               }
+            }
+         }
+
+
+         #item-nav {
+            margin: 20px 0px;
+            .orange-tab;   
+
+            .item-list-tabs {
+               #nav-documents-groups-li,
+               #nav-documents-personal-li{
+                  background: none;
+               }
+            }  
+         }
+
+
+         // Item Body
+         
+         #item-body {
+
+            #subnav {
+               display: none;
+            }
+
+            // Add Content
+
+            .bpfb_form_container {
+
+               background-color: @sand;
+               padding: 30px 20px 10px 20px;
+
+               #whats-new-avatar{
+                 .activity-greeting {
+                     margin-bottom: 25px;
+                     font-size: 20px;
+                  }
+               }
+
+               #whats-new-content {
+               
+                  textarea {
+                     height: 50px !important;
+                     background: #FFF;
+                     color: @dark;
+                     font-size: 16px;
+                     padding: 6px;
+                     border: none;
+                  }
+
+                  .bpfb_actions_container{
+
+                     .bpfb_toolbar_container{ //Select Media Type
+
+                     }
+
+                     .bpfb_controls_container { // URL, PREVEIW
+                        input[type="button"]{
+                           .button-green;
+                           height: 40px;
+                           padding: 3px 15px;
+                           margin-top: 20px; 
+                        }
+                     }
+
+                     .bpfb_preview_container { // Preview Window
+                        margin-top: 20px; 
+
+                        iframe {
+                           .responsive-video;
+                        }
+
+                        img.bpfb_preview_photo_item { // Image
+                           width: 50%;
+                           margin-bottom: 20px;
+                        }
+                     }
+
+                     .bpfb_action_container { // Actions, Add, Cancel
+                        input[type="button"] {
+                           .button-orange-small;
+                           height: 40px;
+                           padding: 3px 15px;
+                        }
+                     }
+
+                     // CANCEL BUTTONS
+
+                     #bpfb_cancel_action,
+                     #bpfb_cancel {
+                        .button-red;
+                        height: 40px;
+                        padding: 3px 15px;
+
+                     }
+                     
+                     
+                  }
+
+                  #whats-new-options{
+                     margin-right: 12px;
+                     height: 60px !important;
+                     input[type="submit"] {
+                        .button-orange;
+                        height: 50px;
+                        padding: 0px 16px;
+                     }
+                  }
+
+
+               }
+            } 
+            // Add Content END
+
+
+            // Activity Timeline
+            .activity {
+
+               .activity-stream-mixin;
+            }
+            // Activity Timeline END
+
+            // Documents
+            #bp-group-documents {
+               #bp-group-documents-list{
+
+                  .bp-group-documents-title{
+                     font-size: 18px;
+                     .group-documents-filesize{
+                        font-size: 80%;
+                     }
+                  }
+
+                  .bp-group-documents-meta {
+                     font-size: 16px;
+                  }
+
+                  .admin-links {
+                     font-size: 14px;
+                  }
+               }
+               #bp-group-documents-upload-new{
+                  margin-top: 40px;
+               }
+               .button {
+                  .button-orange-small;
+               }
+            }
+            // Documents END
+
+            // Members
+            #member-list {
+
+               li {
+                  padding: 25px 0px;
+                  font-size: 20px;
+
+                  h5{
+                     margin-top: 16px;
+                     font-size: 18px;
+                  }
+
+                  .activity {
+                     display: none;
+                  }
+                  
+                  .action {
+
+                     top: 27px;
+
+                     .generic-button{
+
+                        .friendship-button {
+                              .button-orange-small;
+                        }
+                        
+                     }
+                  }
+               }
+               
+            }
+            // Members END
+
+         }
+         // Item Body END
+      }
+      // Buddypress END
+      
+   }
+   // Content END
+   
+}
+// Body END
+
+
+
+/* ==========================================================================
+   BuddyPress Single Post
+   ========================================================================== */
+
+.my-activity {
+   #buddypress {
+      .activity {
+          .activity-stream-mixin;
+
+          .activity-list li .activity-content {
+             
+             margin-left: 90px;
+             
+          }
+       }
+   }
+}
+
+
+
+
+/* ==========================================================================
+   Activity Stream
+   ========================================================================== */
+
+
+.activity-stream-mixin {
+
+   // Activity List
+   .activity-list {
+      border-top: none;
+
+      // Activity Item
+      .activity-item { 
+         padding: 35px 0; 
+
+         // Activity Avatar
+         .activity-avatar{
+            a { 
+               img {
+                  margin-left: 30px;
+                  height: 50px;
+                  width: 50px;
+               }
+            }
+         }
+         // Activity Avatar END
+
+         // Activity Content
+         .activity-content { 
+
+            .activity-header{
+               margin-bottom: 20px;
+               p {
+                  font-size: 16px;
+                  img {
+                     vertical-align: middle;
+                     margin: 0px 5px 3px 5px !important;
+                  }
+               }
+
+            }
+
+            .activity-inner {
+               p, img {
+                  margin: 5px 5px 5px 30px;
+               }
+
+               iframe {
+                  .responsive-video;
+               }
+
+               .bpfb_final_link{
+
+                  .bpfb_link_preview_container{
+
+                  }  
+
+                  .bpfb_link_contents{
+
+                     line-height: 2em;
+
+                     .bpfb_link_preview_title{
+                        font-weight: 300;
+                        font-size: 18px;
+                     }
+
+                     .bpfb_link_preview_url{
+                        font-size: 14px;
+
+                     }
+                     .bpfb_link_preview_body{
+                        font-size: 16px;
+
+                     }
+                  }
+
+
+
+               }
+
+               .activity-read-more {
+                  margin-left: 0;
+                  white-space: nowrap;
+                  float: right;
+                  font-size: 16px;
+                  display: none;
+               }
+
+            }
+
+            .activity-meta {
+
+               margin: 20px 0px 0px 30px;
+               // background-color: #F2F2F2;
+               // padding: 5px 8px;
+
+
+               .button {
+                  .button-grey-small;
+
+                  &.acomment-reply{
+                     span {
+                        color: @sand;
+                        background: @apricot-light;
+                        .circle-shape;
+                     }
+                  }
+               } 
+
+               .delete-activity,
+               .spam-activity,
+               .unfav  {
+                  background-color: transparent;
+                  border: none;
+                  color: @tomato;
+                  padding: 8px 7px;
+                  font-size: 12px;
+                  font-weight: 500;
+
+                  &:hover, 
+                  &:focus {
+                     background-color: @tomato;
+                     border: none;
+                     color: @sand;
+                  }
+               }
+
+               .acomment-reply {
+                  &::before{
+                     .fa-icon;
+                     content: '\f075';
+                  }
+               }
+
+               .fav {
+                  &::before{
+                     .fa-icon;
+                     content: '\f005';
+                  }
+               }
+
+               
+            }
+         } 
+         // Activity Content END
+
+         // Activity Comments
+         .activity-comments { 
+
+            .ac-reply-content{
+               input[type="submit"] {
+                  .button-orange-small;
+                  height: 40px;
+                  padding: 3px 15px;
+               }
+            }
+
+            .acomment-avatar {
+               img{
+                  margin: 6px 9px 3px 5px !important;
+               }
+            }
+            .acomment-meta {
+               font-size: 16px!important;
+
+            }
+            .acomment-content {
+               p {
+                  font-size: 16px;
+               }
+            }
+            .acomment-options {
+
+               a {
+                  color: @apricot;
+                  font-size: 14px;
+               }
+
+               .acomment-reply {
+                  .button-grey-small;
+                  padding: 6px 10px;
+
+                  &::before{
+                     .fa-icon;
+                     content: '\f112';
+                  }
+               }
+               
+            }
+         } 
+         // Activity Comments END
+      }
+      // Activity Item END
+   }
+   // Activity List END
+}
+// Activity Timeline END
+
+
+
+/* ==========================================================================
+   BuddyPress My Account Post
+   ========================================================================== */
+
+.my-account,
+.my-profile {
+   #buddypress {
+
+      #item-header {
+         #item-buttons{
+            .generic-button .activity-button,
+            .generic-button .friendship-button{
+               .button-orange-small;
+            }
+         }
+      }
+
+      #item-body{
+            .profile {
+               h4 {
+                  font-size: 30px;
+                  margin: 50px 0px 30px 0px;
+               }
+
+               >p {display: none}
+
+               #avatar-upload-form {
+
+                  input[type="submit"] {
+                     .button-orange;
+                  }
+
+                  font-size: 14px;
+
+                  >p {
+                     font-size: 16px;
+                  }
+
+                  #avatar-upload{
+                     background-color: @clouds;
+                     width: 50%;
+                     padding: 3%;
+                     margin-bottom: 30px;
+
+                     input[type="file"]::-webkit-file-upload-button {
+                        .button-orange-small;
+                        cursor: pointer;
+                        font-size: 18px;
+                        
+                     }
+
+                     #file{
+                        width: 100%;
+                        font-size: 16px;
+                     }
+
+                     #upload {
+                        .button-green;
+                        height: 40px;
+                        padding: 3px 15px;
+                        margin-top: 10px;
+                     }
+                  }
+
+
+
+                  .edit.button {
+                     .button-red;
+                     padding: 8px 11px;
+                     font-size: 12px;
+                     letter-spacing: 0.8px;
+                  }
+
+
+               }
+
+               #avatar-upload-form{
+                  h5 {
+                     font-size: 22px;
+                  }
+               }
+            }
+         }
+      }
+      
+}

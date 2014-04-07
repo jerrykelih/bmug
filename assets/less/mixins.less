@@ -1,0 +1,330 @@
+// ==== Mixins ====
+
+// ******************
+// ================== 
+// MISC
+// ================== 
+// ******************
+
+
+.circle-shape {
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   border-radius: 50%;
+}
+
+.circle-shape-responsive {
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   border-radius: 50%;
+   width: 100%;
+   height: 100%;
+}
+
+.responsive-video {
+   width: 100% !important;
+   max-height: 60% !important;
+}
+
+.event-search-fields {
+   float: left;
+   margin-right: 2%;
+   input[type="text"] {
+      height: 55px;
+      font-size: 24px;
+      color: grey;
+      padding-left: 10px;
+   }
+}
+
+
+// ******************
+// ================== 
+// NAVIGATION
+// ================== 
+// ******************
+
+.active-tab {         
+   background-color: @apricot;
+   color: white;
+   &:hover, 
+   &:focus {
+      background-color: @apricot-dark;
+      color: white;
+   }
+            
+}  
+
+.navbar-links{
+   li {
+      .serif-font;
+      font-size: 20px;
+
+      a {
+         color: @apricot;
+         &:hover, 
+         &:focus {
+            color: @apricot-light;
+         }
+      }
+
+      .dropdown-menu {
+         padding: 10px 0px;
+         border: none;
+         background-color: @apricot;
+         li {
+            a {
+               padding: 8px 20px;
+            }
+         }
+         .active {            
+            a {
+               background-color: @apricot-dark;
+              
+            }
+         }
+      }
+   }
+}
+
+// ******************
+// ================== 
+// BUTTONS
+// ================== 
+// ******************
+
+.button-orange {
+   background-color: @apricot;
+   border: none;
+   color: @sand;
+   padding: 10px 16px;
+   font-size: 18px;
+   font-weight: 300;
+   &:hover, 
+   &:focus {
+      color: @sun;
+      background-color: @apricot-light;
+   }
+}
+
+.button-orange-small {
+   background-color: @apricot;
+   border: none;
+   color: @sand;
+   padding: 8px 14px;
+   font-size: 12px;
+   font-weight: 300;
+   &:hover, 
+   &:focus {
+      color: @sun;
+      background-color: @apricot-light;
+   }
+}
+
+.button-orange-light {
+   background-color: @white-orange;
+   border: none;
+   color: @apricot-dark;
+   padding: 8px 14px;
+   font-size: 12px;
+   font-weight: 300;
+   &:hover, 
+   &:focus {
+      color: @apricot;
+      background-color: @white-orange-dark;
+   }
+}
+
+.button-red {
+   background-color: @tomato;
+   border: none;
+   color: @sand;
+   padding: 10px 16px;
+   font-size: 14px;
+   font-weight: 300;
+   &:hover, 
+   &:focus {
+      color: @sun;
+      background-color: @salmon;
+   }
+}
+
+
+.button-green {
+   background-color: @green;
+   border: none;
+   color: @sand;
+   padding: 10px 16px;
+   font-size: 18px;
+   font-weight: 300;
+   &:hover, 
+   &:focus {
+      color: @sun;
+      background-color: @green-dark;
+   }
+}
+
+.button-grey-small {
+   background-color: @clouds;
+   border: none;
+   color: @apricot-dark;
+   padding: 8px 14px;
+   font-size: 12px;
+   font-weight: 300;
+   &:hover, 
+   &:focus {
+      color: @apricot;
+      background-color: @middle-gray;
+   }
+}
+
+
+
+// ******************
+// ================== 
+// TABS
+// ================== 
+// ******************
+
+
+.orange-tab {
+   li {
+      .serif-font;
+      font-size: 16px;
+
+      a {
+         color: @apricot;
+
+         &:hover, 
+         &:focus {
+            color: @apricot-light;
+         }
+
+         span {
+            background: @sun;
+            border: 1px solid @apricot-light;
+            color: @apricot-light;
+         }
+      }
+
+      &.selected {
+      
+         a {
+            font-weight: 300;
+            .active-tab; 
+
+            span {
+               border: none;
+               color: @apricot-dark;
+            }
+            
+         }
+      }
+
+    
+   }
+}
+
+
+
+// ******************
+// ================== 
+// WIDGETS
+// ================== 
+// ******************
+
+
+.widget-orange {
+   background-color: @apricot;
+   color: @white;
+   a {
+      font-size: 16px;
+      color: @sun;
+      &:hover, 
+      &:focus {
+         color: @sand;
+         text-decoration: none;
+      }
+   }
+}
+
+.widget-green {
+   background-color: @green;
+   color: @white;
+   a {
+      font-size: 16px;
+      color: @sand;
+      &:hover, 
+      &:focus {
+         color: @sun;
+         text-decoration: none;
+      }
+   }
+}
+
+// ******************
+// ================== 
+// ICONS
+// ================== 
+// ******************
+
+.fa-icon {
+   font-family: 'FontAwesome';
+   margin-right: 7px;
+   vertical-align: middle;
+   color: inherit;
+}
+
+.fa-icons-small {
+   font-family: 'FontAwesome';
+   margin-right: 7px;
+   font-size: 20px;
+   vertical-align: middle;
+}
+
+i.fa-globe {color: @website;}
+i.fa-linkedin-square {color: @linkedin;}
+i.fa-facebook-square {color: @facebook;}
+i.fa-twitter-square {color: @twitter;}
+i.fa-google-plus-square {color: @google-plus;}
+
+
+
+// ******************
+// ================== 
+// ADD ITEMS in GALLERY 
+// ================== 
+// ******************
+
+.add-items {
+   width: 280px;
+   height: 280px;
+   display: block;
+   margin-top: 10px;
+   text-align: center;   
+   background-color: @apricot;
+   color: @sun;
+
+   &:hover {
+      background-color: @apricot-light;
+      color: @sand;
+   }
+
+   p {
+      font-size: 30px;
+      .serif-font;
+      color: inherit;
+      text-align: center; 
+      vertical-align: middle;
+      padding-top: 35%;
+      line-height: 1.5em;
+      padding-left: 10px;
+      padding-right: 10px;
+   }
+}
+
+
