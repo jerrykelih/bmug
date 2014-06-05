@@ -12,69 +12,114 @@
    ========================================================================== */
 
 body.buddypress{
-   
 
 }
+
+
+
+
 
 /* ==========================================================================
    Admin Bar
    ========================================================================== */
 
+.bp-user.following.activity {
+   #item-header,
+   #item-nav {
+      display: none;
+   }
+
+
+}
+
 #wpadminbar {
    background-color: transparent;
    position: absolute;
+   left:auto!important;
+   right: 0!important;
+   width: 300px;
+   min-width: 0px;   
+   top: 8px;
+   position: fixed;
+
+   a {
+      color: @white;
+      &:active,
+      &:hover, 
+      &:focus {
+         color: @sand;
+      } 
+   }
 
    #wp-toolbar {
+
+      
       #wp-admin-bar-root-default {
-         #wp-admin-bar-wp-logo{
-            display: none;
+         float: left;
+         margin-left: 25%;
+         
+         li:nth-child(1),
+         li:nth-child(2),
+         li:nth-child(3),
+         li:nth-child(4),
+         li:nth-child(5),
+         li:nth-child(6),
+         li:nth-child(7),
+         li:nth-child(8),
+         li:nth-child(9),
+         li:nth-child(10) {  
+           display: none;
          }
-         #wp-admin-bar-site-name{
-            display: none;
-         }
-         #wp-admin-bar-social_login {
-            float: right;
-            margin-right: 17%;
+
+         #wp-admin-bar-my-newsfeed,
+         #wp-admin-bar-my-profile {
+            margin-top: 5px;
+            padding-right: 10px;
             a {
-               .button-orange-small;
-               font-size: 14px;
-
-               &::before {
-                  .fa-icon;
-                  content: '\f090';
-                  color: inherit;
-                  font-size: 24px;
-
-               }
+               .button-orange-color;
             }
-
          }
+
+         #wp-admin-bar-wall {
+            display: none;
+         }
+         
       }
 
       #wp-admin-bar-top-secondary {
          margin-right: 7%;
 
-         #wp-admin-bar-search {
-            display: none;
-         }
+      
 
          // Template match fix
          #wp-admin-bar-my-account,
          #wp-admin-bar-bp-notifications {
 
-            background-color: @apricot;
+            background-color: @apricot-dark;
 
             a {
                font-size: 16px;
                padding: 5px 15px;
 
+               span {
+                  .square-shape;
+               }
+
             }
 
             * {
-               background-color: @apricot;
+               background-color: @apricot-dark;
                color: @white;
                font-size: 14px;
                .sans-font;
+
+               &:active,
+               &:hover, 
+               &:focus {
+                  color: @sand;
+               } 
+
+
                img {
                   .circle-shape;
                }
@@ -85,31 +130,17 @@ body.buddypress{
          #wp-admin-bar-my-account {
             > a.ab-item {
                .avatar.photo {
-                  border-color: @apricot-dark;
+                  border-color: @apricot;
                   width: 30px;
                   height: 30px;
                }
             }
 
             .ab-sub-wrapper {
+               
                #wp-admin-bar-user-actions {
 
-                  #wp-admin-bar-user-info{   
-
-                     display: none; 
-
-                     // a.ab-item  {
-                     //    .display-name {
-                     //       font-size: 18px;
-                     //       margin-bottom: 10px;
-                     //    }
-                     //    .username{
-                     //       font-size: 14px;
-                     //       font-weight: 100;
-                     //    }
-                     // }
-                  }
-
+                  
                   #wp-admin-bar-edit-profile{
                      margin-top: 10px;
                      margin-left: 0px;
@@ -122,9 +153,9 @@ body.buddypress{
                   }
 
                   #wp-admin-bar-logout{
-                     margin-top: 5px;
-                     margin-left: 0px;
+                     margin: 5px 0px;
                      a{
+                        
                         &::before {
                            .fa-icon;
                            content: '\f08b';
@@ -134,29 +165,117 @@ body.buddypress{
                }
 
                #wp-admin-bar-my-account-buddypress{
-                  
-                     a.ab-item{
-                        padding-left: 40px;
-                        &::before {
-                           padding-left: 10px;
+                  margin-top: -10px;
+
+                     
+                     #wp-admin-bar-my-account-messages {
+
+                           > a.ab-item {
+                              margin-left: 25px;
+                              margin-bottom: 10px;
+                              
+                              &::before {
+                              .fa-icon;
+                              content: '\f003';
+                              margin-left: 12px;
+                              font-size: 14px;
+                              vertical-align: middle;
+                              }
+                           }
+                           
+                           
+
+                     }
+
+                     #wp-admin-bar-my-settings {
+                           
+                         margin: 0px;
+                        
+                        .ab-item {
+
+                           background-color: #c15238;
+                           color: @sand;
+                           font-size: 16px;
+                           padding-left: 15px;
+                           padding-top: 10px;
+                           &:hover {
+                              color: @sand;
+                           }
+
+                           font-size: 14px;
+                           text-transform: uppercase;
+                           
+                           &::after {
+                              .fa-icon;
+                              content: '\f0d7';
+                              margin-left: 5px;
+                              font-size: 14px;
+                              vertical-align: middle;
+                           }
                         }
                      }
 
+                     #wp-admin-bar-my-avatar {
+                        a::before {
+                           .fa-icon;
+                           content: '\f007';
+                           margin-left: 5px;
+                           font-size: 14px;
+                           vertical-align: middle;
+                        }
+                     }
+
+                     #wp-admin-bar-my-events {
+                        a::before {
+                           .fa-icon;
+                           content: '\f133';
+                           margin-left: 5px;
+                           font-size: 14px;
+                           vertical-align: middle;
+                        }
+                     }
+
+                     #wp-admin-bar-my-email-notifications {
+                        a::before {
+                           .fa-icon;
+                           content: '\f0e0';
+                           margin-left: 5px;
+                           font-size: 14px;
+                           vertical-align: middle;
+                        }
+                     }
 
                      .ab-sub-wrapper{
                         background-color: @apricot-dark !important;
                      }
                   
                }
+               .user-settings a {
+                 font-size: 14px!important;
+                 padding-left: 10px;
+                 margin: 0px;
+                  background-color: #c15238;
+               }
+
             }
          }
 
          #wp-admin-bar-bp-notifications{
+
+
             
             #ab-pending-notifications {
-               background: @sun;
-               color: @apricot-dark;
-
+               
+               color: @white;
+               font-weight: 300;
+            
+               &::before {
+                  .fa-icon;
+                  content: '\f0f3';
+                  color: @white;
+                  font-size: 20px;
+                  left: 20px;
+               }
 
             }
          }
@@ -164,6 +283,8 @@ body.buddypress{
      
    }
 }
+
+
 
 /* ==========================================================================
    BuddyPress Directory
@@ -213,18 +334,22 @@ body.buddypress{
 
       .dir-form {
 
-         .pagination {
-            display: none;
-         }
+         
 
          .item-list-tabs{
             float: left;
             clear: none;
-            .orange-tab;
+            .tab;
+            .selected a{
+               .tab-line;
+            }
+
+            display: none;
+
          }
 
          #subnav{
-            float: right;
+            float: left;
             label{
                font-size: 16px;
                font-weight: 300;
@@ -235,10 +360,15 @@ body.buddypress{
                .sans-font;
 
             }
-            
+            display: block;
          }
 
          .dir-list{
+
+            #message.info {
+               position: relative;
+               top: 70px;
+            }
             
             li {
                padding: 25px 0;
@@ -348,7 +478,14 @@ body.buddypress{
 
             #item-header-avatar {
                margin-top: 25px;
-
+               #bp-verified-header {
+                  width: 40px;
+                  height: 40px;
+                  display: block;
+                  position: absolute;
+                  top: 85px;
+                  left: 205px;
+               }
             }
 
             #item-header-content {
@@ -357,7 +494,7 @@ body.buddypress{
                }
                #item-meta {
                   #latest-update{
-                     font-size: 18px;
+                     display: none;
                   }
                   
                }
@@ -367,14 +504,40 @@ body.buddypress{
 
          #item-nav {
             margin: 20px 0px;
-            .orange-tab;   
+
+            a {
+               font-size: 16px;
+               font-weight: 500;
+               color: @apricot;
+               padding: 5px 0px 0px 0px;
+               margin: 0px 15px;
+               border-bottom: 2px solid @white;
+               &:hover {
+                  .tab-line;
+                  color: @apricot-dark;
+               }
+            }
+            
+            .tab;
+            .selected a{
+               
+               .tab-line;
+               color: @apricot-dark;
+               font-weight: 700;
+            }   
 
             .item-list-tabs {
                #nav-documents-groups-li,
                #nav-documents-personal-li{
                   background: none;
                }
-            }  
+
+
+            } 
+
+            span {
+               .counter;
+            } 
          }
 
 
@@ -390,88 +553,7 @@ body.buddypress{
 
             .bpfb_form_container {
 
-               background-color: @sand;
-               padding: 30px 20px 10px 20px;
-
-               #whats-new-avatar{
-                 .activity-greeting {
-                     margin-bottom: 25px;
-                     font-size: 20px;
-                  }
-               }
-
-               #whats-new-content {
-               
-                  textarea {
-                     height: 50px !important;
-                     background: #FFF;
-                     color: @dark;
-                     font-size: 16px;
-                     padding: 6px;
-                     border: none;
-                  }
-
-                  .bpfb_actions_container{
-
-                     .bpfb_toolbar_container{ //Select Media Type
-
-                     }
-
-                     .bpfb_controls_container { // URL, PREVEIW
-                        input[type="button"]{
-                           .button-green;
-                           height: 40px;
-                           padding: 3px 15px;
-                           margin-top: 20px; 
-                        }
-                     }
-
-                     .bpfb_preview_container { // Preview Window
-                        margin-top: 20px; 
-
-                        iframe {
-                           .responsive-video;
-                        }
-
-                        img.bpfb_preview_photo_item { // Image
-                           width: 50%;
-                           margin-bottom: 20px;
-                        }
-                     }
-
-                     .bpfb_action_container { // Actions, Add, Cancel
-                        input[type="button"] {
-                           .button-orange-small;
-                           height: 40px;
-                           padding: 3px 15px;
-                        }
-                     }
-
-                     // CANCEL BUTTONS
-
-                     #bpfb_cancel_action,
-                     #bpfb_cancel {
-                        .button-red;
-                        height: 40px;
-                        padding: 3px 15px;
-
-                     }
-                     
-                     
-                  }
-
-                  #whats-new-options{
-                     margin-right: 12px;
-                     height: 60px !important;
-                     input[type="submit"] {
-                        .button-orange;
-                        height: 50px;
-                        padding: 0px 16px;
-                     }
-                  }
-
-
-               }
+               .activity-form-container;
             } 
             // Add Content END
 
@@ -515,8 +597,11 @@ body.buddypress{
             #member-list {
 
                li {
-                  padding: 25px 0px;
+                  margin-bottom: 10px;
+                  padding: 10px 0px;
                   font-size: 20px;
+                  border: none;
+                  box-shadow: none;
 
                   h5{
                      margin-top: 16px;
@@ -544,6 +629,9 @@ body.buddypress{
             }
             // Members END
 
+
+            
+
          }
          // Item Body END
       }
@@ -561,7 +649,8 @@ body.buddypress{
    BuddyPress Single Post
    ========================================================================== */
 
-.my-activity {
+.my-activity,
+.page-id-465 {
    #buddypress {
       .activity {
           .activity-stream-mixin;
@@ -577,9 +666,67 @@ body.buddypress{
 
 
 
+/* ==========================================================================
+   SITEWIDE Activity Stream
+   ========================================================================== */
+
+.page-id-465,
+.home-page.logged-in {
+
+   .bpfb_form_container,
+   #whats-new-form {
+
+      .activity-form-container;
+   } 
+
+   .item-list-tabs{
+
+      li {
+
+         padding: 0px 0px !important;
+         margin: 40px 10px 0px 10px !important;
+         .tab !important;
+
+         a {
+            padding: 5px 0px !important;
+            margin: 0px 0px !important;
+            &:hover {
+               .tab-line !important;
+            }
+            span {
+               .counter !important;
+            } 
+         }
+
+         &.selected {
+            .tab-line !important;
+            a{
+               background-color: @white!important;
+               color: @apricot !important;
+               &:hover {
+                  border-bottom: 0px solid @apricot!important;
+               }
+            }
+         }
+      }
+   
+      
+
+   }
+
+   .activity {
+      .activity-stream-mixin !important;
+   }
+
+
+
+}
+
+
+
 
 /* ==========================================================================
-   Activity Stream
+   Activity Stream MIXINS
    ========================================================================== */
 
 
@@ -591,7 +738,7 @@ body.buddypress{
 
       // Activity Item
       .activity-item { 
-         padding: 35px 0; 
+         padding: 10px 0; 
 
          // Activity Avatar
          .activity-avatar{
@@ -601,13 +748,26 @@ body.buddypress{
                   height: 50px;
                   width: 50px;
                }
+
+               #bp-verified {
+                  width: 20px;
+                  height: 15px;
+                  top: 70px;
+                  left: 60px;
+                  img {
+                     margin-left: 0px;
+                     height: 20px;
+                     width: 20px;
+                  }
+                  display: none;
+               }
             }
          }
          // Activity Avatar END
 
          // Activity Content
          .activity-content { 
-
+            margin: 0 0 0 10px;
             .activity-header{
                margin-bottom: 20px;
                p {
@@ -622,7 +782,7 @@ body.buddypress{
 
             .activity-inner {
                p, img {
-                  margin: 5px 5px 5px 30px;
+                  margin: 5px 5px 5px 0px;
                }
 
                iframe {
@@ -631,31 +791,65 @@ body.buddypress{
 
                .bpfb_final_link{
 
-                  .bpfb_link_preview_container{
+                  .bpfb_link_preview_container { // Preview Window
+                     width: 300px;
+                     height: 300px;
+                     vertical-align: middle;
+                     display: table-cell;
+                     text-align: center;
+                     padding: 10px;
+                     border: 1px solid #EDEDED;
+                     margin-right: 10px;
+                        img {
+                           width: auto;
+                           max-height: 300px;
+                        }
 
-                  }  
+                  }
+
+
 
                   .bpfb_link_contents{
 
                      line-height: 2em;
+                     margin-left: 0px;
 
                      .bpfb_link_preview_title{
                         font-weight: 300;
-                        font-size: 18px;
+                        font-size: 16px;
+                        line-height: 1.5em;
+                        margin-bottom: 5px;
+                        margin-top: 5px;
                      }
 
                      .bpfb_link_preview_url{
-                        font-size: 14px;
+                        font-size: 12px;
+                        line-height: 1.5em;
+                        a {
+                           color:#AAA;
+                           &:hover {
+                              color:#AAA;
+                              text-decoration: underline;
+                           }
+                        }
+
 
                      }
                      .bpfb_link_preview_body{
+                        margin-top: 10px;
                         font-size: 16px;
-
+                        line-height: 1.5em;
                      }
                   }
 
 
 
+               }
+
+               .bpfb_images {
+                  img {
+                     max-width: 300px;
+                  }
                }
 
                .activity-read-more {
@@ -670,54 +864,22 @@ body.buddypress{
 
             .activity-meta {
 
-               margin: 20px 0px 0px 30px;
-               // background-color: #F2F2F2;
-               // padding: 5px 8px;
+               margin: 20px 0px 10px 20px;
 
 
                .button {
-                  .button-grey-small;
+                  .activity-action-yes;
 
                   &.acomment-reply{
                      span {
-                        color: @sand;
-                        background: @apricot-light;
-                        .circle-shape;
+                        .counter;
                      }
                   }
                } 
 
-               .delete-activity,
-               .spam-activity,
-               .unfav  {
-                  background-color: transparent;
-                  border: none;
-                  color: @tomato;
-                  padding: 8px 7px;
-                  font-size: 12px;
-                  font-weight: 500;
+               
 
-                  &:hover, 
-                  &:focus {
-                     background-color: @tomato;
-                     border: none;
-                     color: @sand;
-                  }
-               }
-
-               .acomment-reply {
-                  &::before{
-                     .fa-icon;
-                     content: '\f075';
-                  }
-               }
-
-               .fav {
-                  &::before{
-                     .fa-icon;
-                     content: '\f005';
-                  }
-               }
+               
 
                
             }
@@ -757,7 +919,7 @@ body.buddypress{
                }
 
                .acomment-reply {
-                  .button-grey-small;
+                  .activity-action-yes;
                   padding: 6px 10px;
 
                   &::before{
@@ -776,7 +938,130 @@ body.buddypress{
 }
 // Activity Timeline END
 
+.activity-form-container {
 
+   background-color: @sand;
+   padding: 30px 20px 10px 20px;
+   margin-bottom: 25px;
+
+   #whats-new-avatar{
+     .activity-greeting {
+         margin-bottom: 25px;
+         font-size: 20px;
+      }
+   }
+
+   #whats-new-content {
+   
+      textarea {
+         height: 50px !important;
+         background: #FFF !important;
+         color: @grey !important;
+         font-size: 20px !important;
+         padding: 6px !important;
+         border: none !important;
+      }
+
+      .bpfb_actions_container.bpfb-theme-round{
+         .bpfb_toolbarItem {
+                        background: @apricot-dark !important;
+                        border: 0px solid #FFF !important;
+                        clear: both;
+                        margin-bottom: 10px;
+                        &:visited,
+                        &:hover {
+                           background: @apricot !important;
+                        }
+
+                        span {
+                           position: absolute;
+                           left: 150px ;
+                           display: inline-block;
+                           color: @apricot-dark;
+                           font-size: 16px;
+                           &:visited,
+                           &:hover {
+                              color: @apricot;
+                           }
+
+                        }
+          }  
+         .bpfb_toolbar_container{ //Select Media Type
+            
+            
+
+            #bpfb_addPhotos,
+            #bpfb_addVideos {
+            display: none;
+            }
+
+
+         }
+
+         .bpfb_controls_container { // URL, PREVEIW
+            input[type="button"]{
+               .button-green;
+               height: 40px;
+               padding: 3px 15px;
+               margin-top: 20px; 
+            }
+
+
+         }
+
+
+         &.bpfb-theme-new.bpfb-alignment-left {
+            float: left;
+            background-color: @sand;
+            padding: 15px 20px 0px 20px;
+
+            input#bpfb_cancel_action {
+               margin-bottom: 20px;
+            }
+         }
+
+         .bpfb_preview_container { // Preview Window
+            margin-top: 20px; 
+            
+
+
+            iframe {
+               .responsive-video;
+            }
+
+            img.bpfb_preview_photo_item { // Image
+               width: 50%;
+               margin-bottom: 20px;
+            }
+
+
+         }
+
+         .bpfb_action_container { // Actions, Add, Cancel
+            input[type="button"] {
+               .button-orange-small;
+               height: 40px;
+               padding: 3px 15px;
+            }
+         }
+
+         
+         
+         
+      }
+
+      #whats-new-options{
+         margin-right: 12px;
+         height: 60px !important;
+         #aw-whats-new-submit {
+            height: 50px;
+            padding: 0px 16px;
+         }
+      }
+
+
+   }
+} 
 
 /* ==========================================================================
    BuddyPress My Account Post
@@ -794,6 +1079,13 @@ body.buddypress{
             }
          }
       }
+
+      #item-nav {
+         #messages-personal-li {
+            display: none;
+         }
+      }
+
 
       #item-body{
             .profile {
@@ -863,4 +1155,206 @@ body.buddypress{
          }
       }
       
+}
+
+/* ==========================================================================
+   Activity Stream HACKS
+   ========================================================================== */
+
+#buddypress {
+   
+
+   #subnav {
+
+      .feed {
+         display: none;
+      }
+      float: left;
+   }
+   .activity-avatar {
+   margin-top: 5px;
+   }
+   .activity-header {
+      p {
+         color: #A6A6A6;
+         font-size: 14px!important;
+
+         a:first-child { // Users name
+            font-size: 16px;
+            color: @apricot-dark;
+
+            &:after {
+               content: " "; /* Older browser do not support empty content */
+               visibility: hidden;
+               display: block;
+               height: 0;
+               clear: right;
+            }
+            
+         }
+
+         a {
+            
+            img.avatar{
+               margin: 0px 5px !important;
+               
+            }
+         }
+
+         a.view { // Time posted - link to post
+            
+            font-size: 14px!important;
+            
+
+            &:hover {
+               text-decoration:  none;
+            }
+            &::after {
+               .fa-icon;
+               content: '\f08e';
+               color: @apricot-dark;
+               margin-left: 5px;
+               &:hover {
+                  color: @apricot;
+               }
+            }
+         }
+
+         
+         
+      }
+   }
+
+
+   .activity-inner {
+   // border: 1px solid #F3F3F3;
+   padding: 10px 0px;
+   }
+
+   ul.item-list li {
+   border-bottom: 0px solid #fff;
+   border: 1px solid #E4E4E4;
+   margin-bottom: 20px;
+      box-shadow: 0px 2px 0px #E4E4E4;
+   }  
+   ul#groups-list.item-list li {
+   border-bottom: 0px solid #fff;
+   border: 0px solid #E4E4E4;
+   box-shadow: 0px 2px 0px #E4E4E4;
+   
+   }  
+   ul#members-list.item-list li {
+   border-bottom: none;
+   border: none;
+   box-shadow: none;
+   
+   } 
+
+   .activity-list .activity-content .activity-inner, #buddypress .activity-list .activity-content blockquote {
+   margin: 0px 0px 0px 25px;
+   overflow: hidden;
+   }
+}
+
+.bp-user {
+
+
+
+   .activity-avatar {
+      display: none;
+   }
+
+   .activity-header {
+      p {
+         margin-left: 24px!important;
+         &:first-letter{
+            text-transform: capitalize
+         }
+
+         a:first-child { // Users name
+            display: none;
+
+            &:after {
+               margin-left: 20px;
+               clear: none;
+            }
+            
+         }
+
+         a {
+            
+            img.avatar{
+               margin: 0px 5px !important;
+               
+            }
+         }
+
+         
+
+         
+         
+      }
+   }
+
+   .activity-content {
+      margin-left: 0px !important;
+
+
+   }
+
+
+}
+
+#buddypress .activity-list .activity-content .activity-header img.avatar {
+   margin: 0px 5px !important;
+}
+
+
+.myfeed {
+   #buddypress {
+      margin-top: -30px;
+
+      #activity-filter-select {
+         display: none;
+      }
+   }
+}
+
+
+// TABLES
+#buddypress{
+   table {
+
+      thead {
+         tr {
+            th {
+               padding: 5px;
+               font-size: 14px;
+
+            }
+         }
+      }
+
+      tbody {
+         tr {
+
+            &:nth-child(odd) {
+               background-color: @sand-light;
+            }
+            td {
+               padding: 5px;
+               height: 70px;
+               font-size: 14px;
+
+               .em-bookings-cancel {
+               font-size: 12px;
+               }
+
+               a {
+                  font-size: 16px;
+               }
+            }
+         }
+      }
+   } 
 }

@@ -15,6 +15,15 @@
    border-radius: 50%;
 }
 
+.square-shape {
+   -webkit-border-radius: 0%;
+   -moz-border-radius: 0%;
+   -ms-border-radius: 0%;
+   -o-border-radius: 0%;
+   border-radius: 0%;
+}
+
+
 .circle-shape-responsive {
    -webkit-border-radius: 50%;
    -moz-border-radius: 50%;
@@ -26,8 +35,8 @@
 }
 
 .responsive-video {
-   width: 100% !important;
-   max-height: 60% !important;
+   width: 300px;
+   max-height: 300px;
 }
 
 .event-search-fields {
@@ -38,8 +47,17 @@
       font-size: 24px;
       color: grey;
       padding-left: 10px;
+      width: 100%;
    }
 }
+
+.counter {
+   background: @sand;
+   border: 1px solid @sun;
+   color: @apricot-dark;
+   .square-shape;
+} 
+
 
 
 // ******************
@@ -51,144 +69,53 @@
 .active-tab {         
    background-color: @apricot;
    color: white;
+   &:active,
    &:hover, 
    &:focus {
       background-color: @apricot-dark;
       color: white;
    }
             
+} 
+
+.tab {         
+   background-color: @white;
+   color: @apricot-dark;
+   text-transform: uppercase;
+   &:active,
+   &:hover, 
+   &:focus {
+      background-color: @white;
+      color: @apricot;
+   }
+            
+}   
+
+.tab-line {         
+   background-color: @white;
+   color: @apricot-dark;
+   border-bottom: 2px solid @apricot-dark;
+   &:active,
+   &:hover, 
+   &:focus {
+      background-color: @white;
+      color: @apricot;
+   }
+            
 }  
 
-.navbar-links{
-   li {
-      .serif-font;
-      font-size: 20px;
-
-      a {
-         color: @apricot;
-         &:hover, 
-         &:focus {
-            color: @apricot-light;
-         }
-      }
-
-      .dropdown-menu {
-         padding: 10px 0px;
-         border: none;
-         background-color: @apricot;
-         li {
-            a {
-               padding: 8px 20px;
-            }
-         }
-         .active {            
-            a {
-               background-color: @apricot-dark;
-              
-            }
-         }
-      }
-   }
-}
-
-// ******************
-// ================== 
-// BUTTONS
-// ================== 
-// ******************
-
-.button-orange {
-   background-color: @apricot;
-   border: none;
-   color: @sand;
-   padding: 10px 16px;
-   font-size: 18px;
-   font-weight: 300;
+.tab-orange {         
+   background-color: @apricot-dark;
+   color: @white;
+   &:active,
    &:hover, 
    &:focus {
-      color: @sun;
-      background-color: @apricot-light;
+      background-color: @apricot-dark;
+      color: @sand;
    }
-}
+            
+}  
 
-.button-orange-small {
-   background-color: @apricot;
-   border: none;
-   color: @sand;
-   padding: 8px 14px;
-   font-size: 12px;
-   font-weight: 300;
-   &:hover, 
-   &:focus {
-      color: @sun;
-      background-color: @apricot-light;
-   }
-}
-
-.button-orange-light {
-   background-color: @white-orange;
-   border: none;
-   color: @apricot-dark;
-   padding: 8px 14px;
-   font-size: 12px;
-   font-weight: 300;
-   &:hover, 
-   &:focus {
-      color: @apricot;
-      background-color: @white-orange-dark;
-   }
-}
-
-.button-red {
-   background-color: @tomato;
-   border: none;
-   color: @sand;
-   padding: 10px 16px;
-   font-size: 14px;
-   font-weight: 300;
-   &:hover, 
-   &:focus {
-      color: @sun;
-      background-color: @salmon;
-   }
-}
-
-
-.button-green {
-   background-color: @green;
-   border: none;
-   color: @sand;
-   padding: 10px 16px;
-   font-size: 18px;
-   font-weight: 300;
-   &:hover, 
-   &:focus {
-      color: @sun;
-      background-color: @green-dark;
-   }
-}
-
-.button-grey-small {
-   background-color: @clouds;
-   border: none;
-   color: @apricot-dark;
-   padding: 8px 14px;
-   font-size: 12px;
-   font-weight: 300;
-   &:hover, 
-   &:focus {
-      color: @apricot;
-      background-color: @middle-gray;
-   }
-}
-
-
-
-// ******************
-// ================== 
-// TABS
-// ================== 
-// ******************
 
 
 .orange-tab {
@@ -229,7 +156,53 @@
    }
 }
 
+// ******************
+// ================== 
+// TEXT INPUTS
+// ================== 
+// ******************
 
+// Define
+
+@inputs-texty: 
+input[type=text],
+input[type=url],
+input[type=tel],
+input[type=number],
+input[type=color],
+input[type=email],
+textarea,
+#author,
+#comment
+;
+
+@inputs-texty-focus: 
+input[type=text]:focus,
+input[type=url]:focus,
+input[type=tel]:focus,
+input[type=number]:focus,
+input[type=color]:focus,
+input[type=email]:focus,
+textarea:focus,
+#author:focus,
+#comment:focus   
+;
+
+// Style
+@{inputs-texty} {
+   color: @grey;
+   border: 1px solid #FEDBC8;
+   background-color: #FFFEF7;
+   padding: 5px 8px;
+   font-size: 18px;
+   border-radius: 0px;
+}
+
+@{inputs-texty-focus} {
+   border: 1px solid @white;
+   background-color: #FFFDF2;
+   border-radius: 0px;
+}
 
 // ******************
 // ================== 
@@ -239,32 +212,92 @@
 
 
 .widget-orange {
-   background-color: @apricot;
-   color: @white;
+   background-color: @white;
+   color: @grey;
+   p {
+      color: @grey;
+   }
    a {
       font-size: 16px;
-      color: @sun;
+      color: @apricot-dark;
       &:hover, 
       &:focus {
-         color: @sand;
+         color: @apricot;
          text-decoration: none;
       }
    }
+   
+
+
 }
 
 .widget-green {
-   background-color: @green;
-   color: @white;
+   background-color: @white;
+   color: @grey;
+   border: 1px solid @green;
+   p {
+      color: @grey;
+   }
    a {
       font-size: 16px;
-      color: @sand;
+      color: @green;
       &:hover, 
       &:focus {
-         color: @sun;
+         color: @green-dark;
          text-decoration: none;
       }
    }
+   // @{inputs-texty} {
+   //    color: @grey;
+   //    border: 1px solid @green-mid;
+   //    background-color: #FFFEF7;
+   //    padding: 5px 8px;
+   //    font-size: 18px;
+   // }
+
+   // @{inputs-texty-focus} {
+   //    border: 1px solid @green;
+   //    background-color: #FFFDF2  ;
+   // }
+  
 }
+
+// .widget-orange-OLD {
+//    background-color: @apricot;
+//    color: @white;
+//    p {
+//       color: @white;
+//    }
+//    a {
+//       font-size: 16px;
+//       color: @sun;
+//       &:hover, 
+//       &:focus {
+//          color: @sand;
+//          text-decoration: none;
+//       }
+//    }
+// }
+
+// .widget-green-OLD {
+//    background-color: @green;
+//    color: @white;
+//    p {
+//       color: @white;
+//    }
+//    a {
+//       font-size: 16px;
+//       color: @sand;
+//       &:hover, 
+//       &:focus {
+//          color: @sun;
+//          text-decoration: none;
+//       }
+//    }
+//    input {
+//       color: @grey;
+//    }
+// }
 
 // ******************
 // ================== 

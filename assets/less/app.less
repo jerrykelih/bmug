@@ -2,14 +2,20 @@
  * Roots 6.5.1
  */
 
+@import "buttons.less";
 @import "bootstrap/bootstrap.less";
 @import "fonts.less";
 @import "mixins.less";
 @import "buddypress.less";
 @import "custom-post.less";
 @import "workshops.less";
+@import "home.less";
 @import "colors.less";
+@import "header.less";
 @import "fonts.less";
+@import "widgets.less";
+@import "country.less";
+
 
 
 
@@ -19,7 +25,20 @@
    ========================================================================== */
 
 
+
 body { 
+
+
+   &.logged-in  {
+     margin-top: -32px !important  ; 
+     @media (max-width: 786px) {
+       margin-top: -46px !important 
+     }
+   }
+   
+   font-size: 17px;
+   color: @grey;
+   line-height: 1.8em;
 
    .sans-font;
    font-weight: 300;
@@ -31,19 +50,25 @@ body {
    }
 
    h1 {
-      font-size: 40px;
+      font-size: 32px;
       font-weight: 500;
       color: #3B3B3B;
+      line-height: 1.4em;
    }
-
+   h2 {
+      line-height: 1.5em;
+      margin-top: 30px;
+      font-size: 28px;
+   }
    h3 {
-      font-size: 26px;
+      font-size: 22px;
+      line-height: 1.5em;
    }
 
    p {
-      font-size: 18px;
-      color: @dark;
-
+      font-size: 17px;
+      color: @grey;
+      line-height: 1.8em;
    }
 
 
@@ -61,8 +86,8 @@ body {
       font-style: normal;
    }
 
-   input[type=text] {
-      width: 100%;
+   li {
+      line-height: 1.8em;
    }
    
    input[type="button"], 
@@ -79,108 +104,71 @@ body {
    }
    .button {
       .button-orange;
-   }  
+      font-size: 20px;
+   } 
+
+
+   img {
+      max-width: 100%;
+      height: auto;
+   } 
+
+   blockquote {
+      border-left: 10px solid #f4e9bd;
+      background-color: @sand; 
+
+      p {
+         font-size: 18px;
+         line-height: 2em;
+         font-style: italic;
+      }
+
+   }
+
+   textarea {
+     width: 100%;
+   }
+
+   // Browser Outline Keyboard Support
+
+   :focus {
+      outline: 2px solid @apricot-light;
+   }
+   
 }
 
 
 
+.wrap {
+   margin-top: 20px;
+
+   @media (min-width: 990px) and (max-width: 1050px) {
+      width: 900px;
+   }
+
+   @media (min-width: 1198px) and (max-width: 1250px) {
+      width: 1100px;
+   }
+}
+
+
+.social-share {
+ margin-top: 30px;
+
+   .addthis-share-btn {
+      margin-right: 10px; 
+   }
+}
+
 /* ==========================================================================
-   Header
+   Gallery
    ========================================================================== */
 
 
-.navbar { 
-
-   background-color: #FFF;
-   border-color: #FFF;
-
-   .navbar-brand {
-      height: auto;
-   }
-
-   .navbar-nav{
-      margin-top: 60px;
-      .navbar-links;
-
-      .open {
-         
-         a {
-            color: white;
-            font-weight: 100;
-            &:hover, 
-            &:focus {
-               background-color: @apricot-dark;
-               color: white;
-            }
-         }
-      }
-
-      .active {
-         a{
-            .active-tab; 
-         }
-           
-      }
-
-
-   }
-
-
-
-}
-
-#wpadminbar {
-   background-color: transparent;
-
-   #wp-toolbar {
-      #wp-admin-bar-root-default {
-         #wp-admin-bar-wp-logo{
-            display: none;
-         }
-         #wp-admin-bar-site-name{
-            display: none;
-         }
-         #wp-admin-bar-social_login {
-            float: right;
-            margin-right: 17%;
-            a {
-               .button-orange-small;
-               font-size: 14px;
-
-               &::before {
-                  .fa-icon;
-                  content: '\f090';
-                  color: inherit;
-                  font-size: 24px;
-
-               }
-            }
-
-         }
-      }
-
-      #wp-admin-bar-top-secondary {
-         #wp-admin-bar-search {
-            display: none;
-         }
-
-         #wp-admin-bar-my-account {
-            background-color: @apricot;
-
-            * {
-               background-color: @apricot;
-               color: @white;
-               font-size: 14px;
-               .sans-font;
-            }
-         }
-
-         #wp-admin-bar-bp-notifications{
-            background-color: @apricot;
-         }
-      }
-     
-   }
+dl.gallery-item {
+width: 24%;
+float: left;
+margin-right: 1%;
 }
 
 
@@ -191,12 +179,7 @@ body {
 
 .content { 
 
-   .entry-content {
-      >h3 {
-         margin-bottom: 20px;
-         margin-top: 40px;
-      }
-   }
+   
 
 }
 
@@ -206,7 +189,13 @@ body {
    Primary Content
    ========================================================================== */
 
-.main { }
+.main {
+   margin-bottom: 60px;
+
+   .page-header {
+      border-bottom: none;
+   }
+}
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
@@ -218,85 +207,12 @@ body {
    ========================================================================== */
 
 .sidebar {
-   .widget {
-      font-size: 16px;
-      line-height: 1.9em;
-      padding: 10px 20px;
-      margin: 20px 0px;
 
-      ul {
-         padding-left: 20px;
-      }
-
-      li {
-         margin-bottom: 10px;
-      
-      }
-
-      &.widget_em_widget,
-      &.widget_text { // Events
-         
-         .widget-green;
-         input[type="button"], 
-         input[type="reset"], 
-         input[type="submit"] {
-            background-color: @green-dark;
-            border: none;
-            color: @sand;
-            padding: 3px 16px;
-         }
-
-      }
-
-      &.testimonialrotatorwidget-3.TestimonialRotatorWidget { // Testimonial
-         
-         .widget-orange;
-
-         .testimonial_rotator_widget_blockquote { 
-            padding: 10px 0px;
-            margin: 0 0 0px;
-            font-size: 16px;
-            border-left: none;
-            line-height: 1.7em;
-
-            cite {
-               font-size: 14px!important;
-            }
-
-            &::before {
-               font-family: 'FontAwesome';
-               content: '\f10d';
-               margin-right: 5px;
-            }
-         }
-      }
-    
-      &.widget_bp_groups_widget { // Groups
-
-         .widget-orange;
-
-         .item-list {
-            img.avatar {
-            height: 40px;
-            margin-right: 10px;
-            width: 40px;
-            }
-         }
-
-         .item-options {
-            color: @green;
-            line-height: 3em;
-            a {
-               padding: 9px 11px;
-               font-size: 17px!important;
-            }
-
-            .selected {
-               color: @white;
-            }
-         }     
-      }
+   input[type=text],
+   input[type=email] {
+      width: 100%;
    }
+
 }
 
 
@@ -310,58 +226,51 @@ body {
 .hentry .entry-content { }
 .hentry footer { }
 
+.single {
+   #comments {
+      .comment {
 
+         .avatar {
+         float: left;
+         margin-right: 15px;
+         }
+
+         margin-top: 25px;
+         margin-bottom: 35px;
+         .media-body {
+            margin-top: 10px;
+
+            time {
+               font-size: 14px;
+            }
+         }
+      }
+      
+   }
+}
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 
 footer.content-info { 
-   background-color: @apricot-light;
-   padding: 30px 30px;
-   color: @white;
-      
-      a {
-         color: @sun;
-         &:hover, 
-         &:focus {
-            color: @sand;
-            text-decoration: none;
-         }
-      }
-
-   .copyright {
-      p {
-         color: @white;
-      }
-      
-   }
-
-   .icl_languages_selector {
-
-      #lang_sel_list ul a, 
-      #lang_sel_list_list ul a:visited {
-         padding: 8px 10px;
-         border: none;
-         border-width: 0px;
-         font-family: 'Lato';
-         font-size: 16px;
-         font-weight: 100;
-         color: white;
-         background: @apricot;
-         &:hover, 
-         &:focus {
-            background: @apricot-dark;
-            color: white;
-         }
-      }
+   .footer-bottom {
+      margin-top: 50px;
    }
 }
 
 
 
+/* ==========================================================================
+   Gallery2
+   ========================================================================== */
 
 
+dl.gallery-item {
+   width: 24%;
+   float: left;
+   margin-right: 1%;
+}
 
 
 

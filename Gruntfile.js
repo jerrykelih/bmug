@@ -2,15 +2,15 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    'ftp-deploy': {
+    'sftp-deploy': {
       build: {
         auth: {
-          host: 'strevenue.webfactional.com',
-          port: 21,
+          host: 'bmgen.io',
+          port: 22,
           authKey: 'key1'
         },
         src: '.',
-        dest: '/home/strevenue/webapps/bmugsite/wp-content/themes/bmug',
+        dest: '/var/www/wordpress/wp-content/themes/bmug',
         exclusions: [
           '.git*',
           '.editorconfig',
@@ -32,18 +32,18 @@ module.exports = function(grunt) {
       },
       css: {
         auth: {
-          host: 'strevenue.webfactional.com',
-          port: 21,
+          host: 'bmgen.io',
+          port: 22,
           authKey: 'key1'
         },
         src: './assets/css/',
-        dest: '/home/strevenue/webapps/bmugsite/wp-content/themes/bmug/assets/css/',
+        dest: '/var/www/wordpress/wp-content/themes/bmug/assets/css/',
         exclusions: [
           './**/.DS_Store',
           './**/Thumbs.db',
           '.ftppass',
           'editor-style.css'
-        ]  
+        ]
       }
     },
     jshint: {
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
           'assets/less/*.less',
           'assets/less/bootstrap/*.less'
         ],
-        tasks: ['less', 'version', 'ftp-deploy:css']
+        tasks: ['less', 'version', 'sftp-deploy:css']
       },
       js: {
         files: [
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-wp-version');
-  grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks('grunt-sftp-deploy');
 
   // Register tasks
   grunt.registerTask('default', [
@@ -165,6 +165,6 @@ module.exports = function(grunt) {
     'watch'
   ]);
   grunt.registerTask('deploy', [
-    'ftp-deploy:build'
+    'sftp-deploy:build'
   ]);
 };

@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.menu-login-or-register {
+            float: right;
+            margin-right: 0px;
+
+            a {
+               background-color: @apricot-dark;
+               border: none;
+               color: @white;
+               padding: 0px 14px;
+               margin-top: 5px;
+               font-size: 14px;
+               font-weight: 300;
+               &:active,
+               &:hover, 
+               &:focus {
+                  color: @sand;
+                  background-color: @apricot-dark;
+               }
+
+
+               &::before {
+                  .fa-icon;
+                  content: '\f090';
+                  color: inherit;
+                  font-size: 24px;
+
+               }
+
+               
+            }
+
+}
+.navbar { 
+
+   background-color: @white;
+   border-bottom: none;
+  
+
+   .container {
+     background-color: #D65D3C;
+     margin: 0px 0px;
+     width: 100%;
+     padding: 0px 30px;
+     height: 60px;
+     position: fixed;
+   }
+
+   .navbar-toggle {
+    border-color: @white;
+     &:focus,
+     &:hover,
+     &:active{
+      background-color: @apricot;
+      border-color: @sun;
+     }
+      .icon-bar {
+        background-color: @white;
+      }
+   }
+
+   .navbar-brand {
+    z-index: 99999;
+      height: initial;
+      img {
+        width: 100%;
+      }
+   }
+   
+   .navbar-collapse{
+      @media (min-width: 786px) {
+        margin-top: 60px;
+        margin-left: 220px;
+      }
+
+      
+      @media (max-width: 786px) {
+        position: absolute;
+      }
+     
+     .nav {
+     
+     top: -51px;
+     
+
+     @media (min-width: 786px) {
+       position: relative;
+     }
+    
+
+       li {
+
+        @media (min-width: 786px) {
+          display: inline-block;
+        }
+           
+          .serif-font;
+          font-size: 18px;
+          background-color: @apricot-dark;
+          
+
+           a {
+              padding: 0px 0px;
+              margin: 7px 15px;
+              .tab-orange;
+
+              @media (max-width: 786px) {
+                padding: 13px 0px;
+                margin: 0px 35px;
+              }
+           }
+
+          
+
+          .dropdown-menu {
+              background-color: @apricot-dark;
+              border: none;
+              margin-top: -5px;
+              border-radius: 0px;
+              padding: 11px;
+              li {
+                 a{
+                    padding: 20px 10px;
+                    margin: -5px 0;
+                    .tab-orange;
+                    &:active,
+                    &:hover, 
+                    &:focus {
+                       color: @sand;
+                       margin: -5px 0;
+                    } 
+                 }
+              }
+
+              
+           }
+       }
+     }
+
+     
+
+   }
+
+
+
+}

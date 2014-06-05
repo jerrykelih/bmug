@@ -8,97 +8,118 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Workshops Directory
+   Workshops Schedule
    ========================================================================== */
+.event-row {
+   padding: 15px 0px;
+
+   &.future-event {
+      &:nth-child(2n+1){
+         background-color: @sand-light;
+      }
+   }
+
+   
+   &:nth-child(2n+1){
+      background-color: #f7f7f7;
+   }
+   
+   .event-link{
+      font-size: 18px;
+   }
+
+   .event-excerpt {
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.7em;
+      color: #777;
+      margin-top: 10px;
+   }
+
+   .event-date {
+      font-size: 16px;
+      text-align: right;
+   }
+   .event-time{
+      text-align: right;
+   }
+
+   .event-location {
+      font-size: 14px;
+      margin-top: 10px;
+   }
+}
+
 
 .workshops {
-   .em-search-wrapper{
-      margin-bottom: 20px;
-      height: 80px;
 
-      .em-search-main {
+   
+
+   // SEARCH
+   .workshop-search {
+
+      .em-search-wrapper{
+            margin-top: 60px;
+            margin-bottom: 60px;
+            height: 80px;
+
+            .em-search-main {
 
 
-         .em-search-text.em-search-field{
-            width: 58%;
-            .event-search-fields;
-         }
+               .em-search-text.em-search-field{
+                  width: 58%;
+                  .event-search-fields;
+               }
 
-         .em-search-geo.em-search-field {
-            width: 28%;
-            .event-search-fields;
-         }
+               .em-search-geo.em-search-field {
+                  width: 28%;
+                  .event-search-fields;
+               }
 
-         button[type="submit"] {
-            .button-orange;
-            float: right;
-            width: 10%;
-         }
+               button[type="submit"] {
+                  .button-orange;
+                  float: right;
+                  width: 10%;
+               }
 
+            }
+            .em-search-advanced{
+               
+               label, input {
+                  font-weight: 500;
+                  margin-top: 30px;
+               }
+            }
+            .em-search-options {
+               float: left;
+               font-size: 16px; 
+               width: 100%;
+               margin-bottom: 20px;
+            }
+
+            
       }
-      .em-search-advanced{
-         
-         label {
-            font-weight: 500;
-         }
-      }
-      .em-search-options {
-         float: left;
-         font-size: 16px; 
-         width: 100%;
-         margin-bottom: 20px;
+   }
+   
+
+   // WORKSHOP LIST
+
+   .workshop-list {
+
+      margin-top: 40px; 
+
+      h2 {
+         font-size: 24px;
       }
 
       
    }
 
-   .css-events-list{
+   
 
-      margin-top: 70px;
 
-      .events-header {
-         margin-bottom: 20px;
-         margin-top: 30px;
-         font-size: 22px;
-         font-weight: 500;
 
-         .date-header {
-            text-align: right;
-         }
-
-      }
-      .event-row {
-         padding: 15px 0px;
-         &:nth-child(2n+2){
-            background-color: #F7F7F7;
-         }
-         
-         .event-link{
-            font-size: 18px;
-         }
-
-         .event-excerpt {
-            font-size: 16px;
-            font-style: italic;
-            line-height: 1.7em;
-            color: #777;
-            margin-top: 10px;
-         }
-
-         .event-date {
-            font-size: 16px;
-            text-align: right;
-         }
-         .event-time{
-            text-align: right;
-         }
-
-         .event-location {
-            font-size: 14px;
-            margin-top: 10px;
-         }
-      }
-   } 
+   
 }
 
 
@@ -109,86 +130,313 @@
 
 .single-event { 
 
-   .page-header {
+   header {
       margin: 0;
       border: none;
       h1 {
-         font-size: 42px;
+         font-size: 38px;
          line-height: 1.5em;
          margin-bottom: 30px;
+         
       }
    }
+   .workshop-main {
+      img {
+         width: 100%;
+         margin: 20px 0;
+      }
 
-   .single-event-header {
+      .bmg-workshop {
+         background-color: @sand;
+         padding: 10px 20px 30px 20px;
+         margin-top: 40px;
+         margin-bottom: 20px;
+      }
+   }
+   
 
-      margin-bottom: 30px;
+   .alignleft {
+      margin-right: 20px;
+   }
 
-      .single-event-meta {
+   .alignright {
+      margin-left : 20px;
+   }
 
-         >div{
-            margin-bottom: 15px;
-         }
+   margin-bottom: 30px;
 
+   .single-workshop-meta {
+      margin-top: 20px;
+
+      >div{
+         margin-bottom: 15px;
+      }
+
+      font-size: 18px;
+
+      i {
+         padding-right: 10px;
          font-size: 18px;
+         color: @grey;
+      }
 
+      .workshop-dates,
+      .workshop-time {
          i {
-            padding-right: 10px;
-            font-size: 18px;
-            color: @dark;
-         }
-
-         .event-dates,
-         .event-time {
-            i {
-               font-size: 26px;
-            }
             font-size: 22px;
          }
- 
-
+         font-size: 24px;
       }
 
-      .single-event-booking {
-         .em-booking-form-details {
-            p:nth-child(2){
-               display: none;
+      
+      .workshop-social-connection {
+         a[title="Meetup.com"] {
+            &::before {
+               .fa-icon;
+               content: '\f0c0';
             }
+         }
+
+         a[title="Facebook"] {
+            &::before {
+               .fa-icon;
+               content: '\f082';
+               padding-left: 4px;
+            }
+         }
+      }
+   
+
+   }
+
+   .workshop-booking-form {
+
+      background-color: #EDFDF2;
+      padding: 20px 30px;
+      margin: 20px 0;
+
+      p {
+         a {
+            display: block;
+            &:before {
+            .fa-icon;
+            content: '\f02d';
+            }
+         }
+
+
+      }
+      .em-booking-form-details {
+         p:nth-child(2){
+            display: none;
+         }
+      }
+
+      .em-tickets-spaces {
+         display: none;
+      }
+
+      .em-booking-buttons {
+
+         #em-booking-submit {
+         width: 50%;
+         margin-top: 20px;
+         margin-left: 25%;
+            
+         @media (max-width: 768px) {
+            width: 100%;
+            margin-left: 0%;
+         }
+            
+
          }
       }
    }
 
-   .event-speakers {
+   .workshop-tags {
+      margin-top: 30px;
+      p {
+         color: transparent;
+      }
+      a {
+         .tag-style;
+
+         &::before {
+            .fa-icon;
+            content: '\f02b';
+         }
+      }
+   }
+
+   
+
+   .workshop-attendees {
+      ul {
+         padding-left: 0px;
+         li {
+            margin-right: 10px;
+            list-style: none;
+            display: inline;
+
+            a {
+               img {
+                  width: 60px;
+                  height: 60px;
+                  margin-bottom: 10px;
+                  border: 3px solid @white;
+                  &:hover,
+                  &:focus {
+                     border: 3px solid @apricot;
+                  }
+               }
+            }
+         }
+      }
+      
+   }
+
+   .workshop-speakers {
       margin-bottom: 60px;
       img{
          .circle-shape;
-         width: 100%;
-         height: 100%;
+         width: 50%;
       }
    }
 
-   .event-case {
+   .workshop-case {
       margin-bottom: 60px;
       .case-slogan{
          font-style: italic;
          font-size: 18px;
       }
-      .case-img {
-         img {
-            width: 100%;
+      img {
+            width: 70%;
+         }
+   }
+
+   .workshop-location {
+
+      .em-location-map-container {
+         width: 100%!important;
+      }
+
+      i.fa-map-marker {
+         margin-right: 10px;
+      }
+       
+      
+   }  
+
+   .workshop-sidebar {
+
+      @media (min-width: 768px) {
+         margin-top: 25px;
+      }
+   }
+     
+   .panel-group {
+      border-radius: 0px;
+      .panel-heading {
+         padding: 3px 15px;
+         height: 70px;
+         background-color: @sand-light;
+         .panel-title {
+            color: @apricot-dark;
+            &:hover {
+               color: @apricot;
+            }
          }
       }
    }
-
-   .event-loc-map {
-      margin-bottom: 60px;
-
-      .em-location-map-container {
-      width: 80%!important;
-      }
-      
-   }  
-     
- 
-
+   .fb-like-box {
+     margin-top: 20px;
+   }
    
+}
+
+/* ==========================================================================
+   Specific Workshops
+   ========================================================================== */
+
+.osterwalder-speaking-business-model-user-group-oslo {
+
+
+
+   .event-attendees.confirmed-list {
+      margin-top: -50px;
+     
+
+      li:nth-child(1) { 
+         
+         &::before {
+            content: 'Confirmed';
+            border-bottom: 1px solid #E7E7E7;
+            font-size: 18px;
+            text-transform: uppercase;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+         }
+      }
+
+
+
+      //Payment Confirmation
+      .payment-confirmed {
+         &::after {
+            .fa-icon;
+            content: '\f058';
+            position: absolute;
+            margin-left: -16px;
+            margin-top: 36px;
+            color: @green-dark;
+         }
+      }
+   
+   }
+
+   .event-attendees.pending-list {
+      margin-top: -30px;
+      
+      li:nth-child(1) { 
+
+         
+         &::before {
+            content: 'Pending Confirmation';
+            border-bottom: 1px solid #E7E7E7;
+            font-size: 18px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+         }
+      }
+
+     
+   }
+}
+
+/* ==========================================================================
+   Payment
+   ========================================================================== */
+
+.qrarea {
+   padding: 0px !important;
+   width: 150px !important;
+   margin: 0 auto !important;
+}
+.download-mcash {
+   .mcash-dlink {
+      margin-bottom: 20px;
+   }
+}
+
+.help-link-mcash {
+   margin-top: 70px;
+   margin-bottom: 30px;
+}
+
+.mcash-step{
+   margin-top: 20px;
 }
